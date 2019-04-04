@@ -18,38 +18,32 @@ namespace ariel{
 		this->value = 0;
 		this->value = 500;
 	}
-	PhysicalNumber PhysicalNumber::operator+(){
+	PhysicalNumber& PhysicalNumber::operator+(){
 		PhysicalNumber temp;
 		temp.value = this->value;
 		temp.type = this->type;
 		return temp;
 	}
-	PhysicalNumber* PhysicalNumber::operator-(){
-		PhysicalNumber* temp = new PhysicalNumber(5, Unit::KM);
-		return temp;
+	PhysicalNumber&  PhysicalNumber::operator-(){
+		return *this;
 	}
-	PhysicalNumber* PhysicalNumber::operator-(PhysicalNumber a){
-		PhysicalNumber* temp = new PhysicalNumber(5, Unit::KM);
-		return temp;
+	PhysicalNumber&  PhysicalNumber::operator-(PhysicalNumber a){
+		return *this;
 	}
-	PhysicalNumber* PhysicalNumber::operator-=(PhysicalNumber a){
-		PhysicalNumber* temp = new PhysicalNumber(5, Unit::KM);
-		return temp;
+	PhysicalNumber&  PhysicalNumber::operator-=(PhysicalNumber a){
+		return *this;
 	}
-	PhysicalNumber* PhysicalNumber::operator+=(PhysicalNumber a){
-		PhysicalNumber* temp = new PhysicalNumber(5, Unit::KM);
-		return temp;
+	PhysicalNumber&  PhysicalNumber::operator+=(PhysicalNumber a){
+		return *this;
 	}
-	PhysicalNumber* PhysicalNumber::operator+(PhysicalNumber a){
-		PhysicalNumber* temp = new PhysicalNumber(5, Unit::KM);
-		return temp;
+	PhysicalNumber&  PhysicalNumber::operator+(PhysicalNumber a){
+		return *this;
 	}
 	bool PhysicalNumber::operator==(PhysicalNumber a){
 		return true;
 	}
-	PhysicalNumber* PhysicalNumber::operator=(PhysicalNumber a){
-		PhysicalNumber* temp = new PhysicalNumber(5, Unit::KM);
-		return temp;
+	PhysicalNumber&  PhysicalNumber::operator=(PhysicalNumber a){
+		return *this;
 	}
 	bool PhysicalNumber::operator<=(PhysicalNumber a){
 		return true;
@@ -63,13 +57,11 @@ namespace ariel{
 	bool PhysicalNumber::operator>(PhysicalNumber a){
 		return true;
 	}
-	PhysicalNumber* PhysicalNumber::operator++(){
-		PhysicalNumber* temp = new PhysicalNumber(5, Unit::KM);
-		return temp;
+	PhysicalNumber&  PhysicalNumber::operator++(){
+		return *this;
 	}
-	PhysicalNumber* PhysicalNumber::operator--(){
-		PhysicalNumber* temp = new PhysicalNumber(5, Unit::KM);
-		return temp;
+	PhysicalNumber&  PhysicalNumber::operator--(){
+		return *this;
 	}
 	std::ostream& operator<<(std::ostream& os, const PhysicalNumber& a){
 		os<<a.value<<endl<<a.type;
@@ -80,15 +72,3 @@ namespace ariel{
 		return is;
 	}
 }
-
-/*
-
-int main(){
-	ariel::PhysicalNumber a;
-	a.value = 5;
-	a.type = ariel::Unit::HOUR;
-	cout<<a;
-	return 0;
-}
-
-*/
