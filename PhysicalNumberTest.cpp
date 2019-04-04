@@ -24,6 +24,13 @@ int main() {
     PhysicalNumber c(2, Unit::HOUR);
     PhysicalNumber d(30, Unit::MIN);
 
+    // My numbers
+    PhysicalNumber f(6, Unit::KM);
+    PhysicalNumber e(350, Unit::M);
+    PhysicalNumber h(180, Unit::TON);
+    PhysicalNumber g(80, Unit::KG);
+    PhysicalNumber i(12, Unit::SEC);
+
     testcase
     .setname("Basic output")
     .CHECK_OUTPUT(a, "2[km]")
@@ -45,11 +52,42 @@ int main() {
     .CHECK_THROWS(b+c)
     .CHECK_THROWS(b+d)
 
+
+
     .setname("Basic input")
     .CHECK_OK(istringstream("700[kg]") >> a)
     .CHECK_OUTPUT((a += PhysicalNumber(1, Unit::TON)), "1700[kg]")
 
     // YOUR TESTS - INSERT AS MANY AS YOU WANT
+
+	// My output tests
+		.CHECK_OUTPUT(i, "12[sec]")
+		.CHECK_OUTPUT(h, "180[ton]")
+		.CHECK_OUTPUT((f-=e), "5.650[km]")
+		.CHECK_OUTPUT(-f, "-6[km]")
+		.CHECK_OUTPUT(+i, "12[sec]")
+		.CHECK_OUTPUT((e==e), "1")
+		.CHECK_OUTPUT((f>=e), "1")
+		.CHECK_OUTPUT((f<=e), "0")
+		.CHECK_OUTPUT((f>e), "1")
+		.CHECK_OUTPUT((f<e), "0")
+		.CHECK_OUTPUT(++f, "7[km]")
+		.CHECK_OUTPUT(--f, "5[km]")
+		.CHECK_OUTPUT(--i, "11[sec]")
+		.CHECK_OUTPUT(++i, "13[sec]")
+
+	// My throws tests
+		.CHECK_THROWS(f-h)
+		.CHECK_THROWS(h+i)
+		.CHECK_THROWS(g-i)
+	// My input tests
+		.CHECK_OK(istringstream("3[ton]") >> i)
+		.CHECK_OUTPUT(i, "3[ton]")
+		.CHECK_OUTPUT((i += PhysicalNumber(1, Unit::KG)), "3.001[ton]")
+
+
+
+
 
       .setname("...")
 
