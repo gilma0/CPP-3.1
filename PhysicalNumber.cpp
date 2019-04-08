@@ -14,83 +14,338 @@ namespace ariel{
 		this->value = a;
 		this->type = type;
 	}
-/*	bool check(PhysicalNumber& a, PhysicalNumber& b){
+	bool check(PhysicalNumber& a, PhysicalNumber& b){
 		if (a.type == b.type){
 			return true;
 		}
-		Unit type = a.type;
-		if ();
-	}*/
+		if (a.type == Unit::KM || a.type == Unit::M || a.type == Unit::CM){
+			if (b.type == Unit::KM || b.type == Unit::M || b.type == Unit::CM){
+				return true;
+			}
+			return false;
+		}
+		if (a.type == Unit::TON || a.type == Unit::KG || a.type == Unit::G){
+			if (b.type == Unit::TON || b.type == Unit::KG || b.type == Unit::G){
+				return true;
+			}
+			return false;
+		}
+		if (a.type == Unit::HOUR || a.type == Unit::MIN || a.type == Unit::SEC){
+			if (b.type == Unit::HOUR || b.type == Unit::MIN || b.type == Unit::SEC){
+				return true;
+			}
+			return false;
+		}
+	}
+
+	PhysicalNumber PhysicalNumber::ThisIsTheBestCheckFunctionEverInTheWorld(PhysicalNumber bugi1, PhysicalNumber bugi2){
+			if(bugi1.type==bugi2.type){
+				return bugi2;
+			}
+			else if((bugi1.type==KM || bugi1.type==M || bugi1.type==CM) && (bugi2.type==KM || bugi2.type==M || bugi2.type==CM)){
+				if(bugi1.type==KM){
+					if(bugi2.type==M){
+						bugi2.type=KM;
+						bugi2.value=bugi2.value/1000;
+						return bugi2;
+					}
+
+					else{
+						bugi2.type=KM;
+						bugi2.value=bugi2.value/100000;
+						return bugi2;
+					}
+				}
+
+				else if(bugi1.type==M){
+					if(bugi2.type==KM){
+						bugi2.type=M;
+						bugi2.value=bugi2.value*1000;
+						return bugi2;
+					}
+					else{
+					bugi2.type=M;
+					bugi2.value=bugi2.value/100;
+					return bugi2;
+					}
+				}
+
+				else if(bugi1.type==CM){
+					 if(bugi2.type==KM){
+						bugi2.type=CM;
+						bugi2.value=bugi2.value*100000;
+						return bugi2;
+					 }
+
+					 else{
+						bugi2.type=CM;
+						bugi2.value=bugi2.value*100;
+						return bugi2;
+					 }
+				}
+			}
+			else if((bugi1.type==HOUR || bugi1.type==MIN || bugi1.type==SEC) && (bugi2.type==HOUR || bugi2.type==MIN || bugi2.type==SEC)){
+				if(bugi1.type==HOUR){
+					if(bugi2.type==MIN){
+						bugi2.type=HOUR;
+						bugi2.value=bugi2.value/60;
+						return bugi2;
+					}
+
+					else{
+						bugi2.type=SEC;
+						bugi2.value=bugi2.value/60/60;
+						return bugi2;
+					}
+				}
+				else if(bugi1.type==MIN){
+					if(bugi2.type==HOUR){
+						bugi2.type=MIN;
+						bugi2.value=bugi2.value*60;
+						return bugi2;
+					}
+					else{
+						bugi2.type=SEC;
+						bugi2.value=bugi2.value/60;
+						return bugi2;
+					}
+				}
+
+				else if(bugi1.type==SEC){
+					 if(bugi2.type==HOUR){
+						bugi2.type=SEC;
+						bugi2.value=bugi2.value*60*60;
+						return bugi2;
+					 }
+					 else{
+						bugi2.type=MIN;
+						bugi2.value=bugi2.value*60;
+						return bugi2;
+					 }
+				}
+			}
+			else if((bugi1.type==TON || bugi1.type==KG || bugi1.type==G) && (bugi2.type==TON || bugi2.type==KG || bugi2.type==G)){
+				if(bugi1.type==TON){
+					if(bugi2.type==KG){
+						bugi2.type=TON;
+						bugi2.value=bugi2.value/1000;
+						return bugi2;
+					}
+					else{
+						bugi2.type=TON;
+						bugi2.value=bugi2.value/1000000;
+						return bugi2;
+					}
+				}
+				else if(bugi1.type==KG){
+					if(bugi2.type==TON){
+						bugi2.type=KG;
+						bugi2.value=bugi2.value*1000;
+						return bugi2;
+					}
+					else{
+						bugi2.type=KG;
+						bugi2.value=bugi2.value/1000;
+						return bugi2;
+					}
+				}
+				else if(bugi1.type==G){
+					 if(bugi2.type==TON){
+						bugi2.type=G;
+						bugi2.value=bugi2.value*1000000;
+						return bugi2;
+					 }
+					 else{
+						 bugi2.type=G;
+						 bugi2.value=bugi2.value*1000;
+						 return bugi2;
+					 }
+				}
+			}
+			throw string("no can do babydoll");
+		}
 
 	PhysicalNumber::PhysicalNumber(){
 		this->value = 0;
 		this->value = 500;
 	}
-	PhysicalNumber& PhysicalNumber::operator+(){
+	PhysicalNumber PhysicalNumber::operator+(){
+		return *this;
+	}
+	PhysicalNumber PhysicalNumber::operator-(){
 		PhysicalNumber temp;
-		temp.value = this->value;
+		temp.value = -(this->value);
 		temp.type = this->type;
 		return temp;
 	}
-	PhysicalNumber&  PhysicalNumber::operator-(){
-		return *this;
-	}
-	PhysicalNumber&  PhysicalNumber::operator-(PhysicalNumber a){
-		return *this;
+	PhysicalNumber PhysicalNumber::operator-(PhysicalNumber a){
+		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
+		temp.value = this->value-temp.value;
+		return temp;
 	}
 	PhysicalNumber&  PhysicalNumber::operator-=(PhysicalNumber a){
+		this->value = (*this-a).value;
 		return *this;
 	}
 	PhysicalNumber&  PhysicalNumber::operator+=(PhysicalNumber a){
+		this->value = (*this+a).value;
 		return *this;
 	}
 	PhysicalNumber&  PhysicalNumber::operator+(PhysicalNumber a){
-		return *this;
+		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
+		temp.value = this->value+temp.value;
+		return temp;
 	}
 	bool PhysicalNumber::operator==(PhysicalNumber a){
-		return true;
+		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
+		if (temp.value == this->value){
+			return true;
+		}
+		return false;
 	}
 	PhysicalNumber&  PhysicalNumber::operator=(PhysicalNumber a){
+		this->value=a.value;
+		this->type=a.type;
 		return *this;
 	}
 	bool PhysicalNumber::operator<=(PhysicalNumber a){
-		return true;
+		PhysicalNumber temp=ThisIsTheBestCheckFunctionEverInTheWorld(*this,a);
+		if(this->value<=temp.value){
+			return true;
+		}
+		return false;
 	}
 	bool PhysicalNumber::operator>=(PhysicalNumber a){
-		return true;
+		PhysicalNumber temp=ThisIsTheBestCheckFunctionEverInTheWorld(*this,a);
+		if(this->value>=temp.value){
+			return true;
+		}
+		return false;
 	}
+
 	bool PhysicalNumber::operator<(PhysicalNumber a){
-		return true;
+		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
+		if(this->value < temp.value){
+			return true;
+		}
+		return false;
 	}
 	bool PhysicalNumber::operator>(PhysicalNumber a){
-		return true;
+		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
+		if(this->value > temp.value){
+			return true;
+		}
+		return false;
 	}
 	PhysicalNumber&  PhysicalNumber::operator++(){
+		this->value++;
 		return *this;
 	}
 	PhysicalNumber&  PhysicalNumber::operator--(){
+		this->value--;
 		return *this;
 	}
 	std::ostream& operator<<(std::ostream& os, const PhysicalNumber& a){
-		os<<a.value<<endl<<a.type;
-		return os;
+		if (a.type == KM){
+			os<<a.value<<"[km]";
+			return os;
+		}
+		if (a.type == M){
+			os<<a.value<<"[m]";
+			return os;
+		}
+		if (a.type == CM){
+			os<<a.value<<"[cm]";
+			return os;
+		}
+		if (a.type == HOUR){
+			os<<a.value<<"[hour]";
+			return os;
+		}
+		if (a.type == MIN){
+			os<<a.value<<"[min]";
+			return os;
+		}
+		if (a.type == SEC){
+			os<<a.value<<"[sec]";
+			return os;
+		}
+		if (a.type == TON){
+			os<<a.value<<"[ton]";
+			return os;
+		}
+		if (a.type == KG){
+			os<<a.value<<"[kg]";
+			return os;
+		}
+		if (a.type == G){
+			os<<a.value<<"[g]";
+			return os;
+		}
 	}
 	std::istream& operator>>(std::istream& is, PhysicalNumber& a){
-		is>>a.value;
+		string temp;
+		is>>temp;
+		int type = temp.size()-2;
+		string t = "";
+		while(temp.at(type) != '['){
+			t += temp.at(type--);
+		}
+		string b = "";
+		for(int i = t.size()-1; i>=0; i--){
+			b += toupper(t.at(i));
+		}
+		if (b.compare("TON") == 0){
+			a.type = TON;
+		}
+		else if (b.compare("KG") == 0){
+			a.type = KG;
+		}
+		else if (b.compare("G") == 0){
+			a.type = G;
+		}
+		else if (b.compare("HOUR") == 0){
+			a.type = HOUR;
+		}
+		else if (b.compare("MIN") == 0){
+			a.type = MIN;
+		}
+		else if (b.compare("SEC") == 0){
+			a.type = SEC;
+		}
+		else if (b.compare("KM") == 0){
+			a.type = KM;
+		}
+		else if (b.compare("M") == 0){
+			a.type = M;
+		}
+		else if (b.compare("CM") == 0){
+			a.type = CM;
+		}
+		else{
+			throw string("madafaka");
+		}
+		type = temp.size()-1;
+		while(temp.at(type--) != '['){
+			temp.pop_back();
+		}
+		temp.pop_back();
+		a.value = stoi(temp);
 		return is;
 	}
 }
 
 
-/*
 
-int main(){
+
+
+/*int main(){
 	ariel::PhysicalNumber a;
-	a.value = 5;
-	a.type = ariel::Unit::HOUR;
+	//a.value = 5;
+	//a.type = ariel::Unit::KG;
+	cin>>a;
 	cout<<a;
 	return 0;
-}
+}*/
 
-*/
 

@@ -9,11 +9,12 @@ namespace ariel{
 		Unit type;
 		PhysicalNumber(double a, Unit);
 		PhysicalNumber();
-	//	bool check(PhysicalNumber& a, PhysicalNumber& b);
+		PhysicalNumber ThisIsTheBestCheckFunctionEverInTheWorld(PhysicalNumber bugi1, PhysicalNumber bugi2);
+		bool check(PhysicalNumber& a, PhysicalNumber& b);
 		PhysicalNumber& operator+(PhysicalNumber);
-		PhysicalNumber& operator+();
-		PhysicalNumber& operator-(PhysicalNumber);
-		PhysicalNumber& operator-();
+		PhysicalNumber operator+();
+		PhysicalNumber operator-(PhysicalNumber);
+		PhysicalNumber operator-();
 		PhysicalNumber& operator-=(PhysicalNumber);
 		PhysicalNumber& operator+=(PhysicalNumber);
 		bool operator==(PhysicalNumber);

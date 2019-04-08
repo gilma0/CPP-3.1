@@ -63,18 +63,18 @@ int main() {
 	// My output tests
 		.CHECK_OUTPUT(i, "12[sec]")
 		.CHECK_OUTPUT(h, "180[ton]")
-		.CHECK_OUTPUT((f-=e), "5.650[km]")
-		.CHECK_OUTPUT(-f, "-6[km]")
+		.CHECK_OUTPUT((f-=e), "5.65[km]")
+		.CHECK_OUTPUT(-f, "-5.65[km]")
 		.CHECK_OUTPUT(+i, "12[sec]")
 		.CHECK_OUTPUT((e==e), "1")
 		.CHECK_OUTPUT((f>=e), "1")
 		.CHECK_OUTPUT((f<=e), "0")
 		.CHECK_OUTPUT((f>e), "1")
 		.CHECK_OUTPUT((f<e), "0")
-		.CHECK_OUTPUT(++f, "7[km]")
-		.CHECK_OUTPUT(--f, "5[km]")
+		.CHECK_OUTPUT(++f, "6.65[km]")
+		.CHECK_OUTPUT(--f, "5.65[km]")
 		.CHECK_OUTPUT(--i, "11[sec]")
-		.CHECK_OUTPUT(++i, "13[sec]")
+		.CHECK_OUTPUT(++i, "12[sec]")
 
 	// My throws tests
 		.CHECK_THROWS(f-h)
