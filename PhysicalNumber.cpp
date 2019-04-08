@@ -14,6 +14,14 @@ namespace ariel{
 		this->value = a;
 		this->type = type;
 	}
+/*	bool check(PhysicalNumber& a, PhysicalNumber& b){
+		if (a.type == b.type){
+			return true;
+		}
+		Unit type = a.type;
+		if ();
+	}*/
+
 	PhysicalNumber::PhysicalNumber(){
 		this->value = 0;
 		this->value = 500;
@@ -72,3 +80,17 @@ namespace ariel{
 		return is;
 	}
 }
+
+
+/*
+
+int main(){
+	ariel::PhysicalNumber a;
+	a.value = 5;
+	a.type = ariel::Unit::HOUR;
+	cout<<a;
+	return 0;
+}
+
+*/
+
