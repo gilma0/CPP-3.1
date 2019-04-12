@@ -18,6 +18,7 @@ namespace ariel{
 		PhysicalNumber& operator-=(PhysicalNumber);
 		PhysicalNumber& operator+=(PhysicalNumber);
 		bool operator==(PhysicalNumber);
+		bool operator!=(PhysicalNumber);
 		PhysicalNumber& operator=(PhysicalNumber);
 		bool operator<=(PhysicalNumber);
 		bool operator>=(PhysicalNumber);
