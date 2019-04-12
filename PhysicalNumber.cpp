@@ -203,6 +203,13 @@ namespace ariel{
 		}
 		return false;
 	}
+	bool PhysicalNumber::operator!=(PhysicalNumber a){
+		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
+		if (temp.value != this->value){
+			return true;
+		}
+		return false;
+	}
 	PhysicalNumber&  PhysicalNumber::operator=(PhysicalNumber a){
 		this->value=a.value;
 		this->type=a.type;
