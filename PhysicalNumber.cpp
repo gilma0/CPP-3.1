@@ -359,7 +359,7 @@ namespace ariel{
 
 
 
-
+/*
 int main(){
 	ariel::PhysicalNumber a;
 	a.value = 5;
@@ -367,6 +367,6 @@ int main(){
 	cout<<a--<<endl;
 	cout<<a;
 	return 0;
-}
+}*/
 
 
