@@ -1,2 +1,2 @@
 # CPP-3.1
-Created by Gil Matsliah and Amit Rash
+Created by Gil Matsliah, Amit Rash and Qusai Trabeh
