@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stdexcept>
 #include "Unit.h"
 #include "PhysicalNumber.h"
 
@@ -14,7 +15,7 @@ namespace ariel{
 		this->value = a;
 		this->type = type;
 	}
-	bool check(PhysicalNumber& a, PhysicalNumber& b){
+/*	bool check(PhysicalNumber& a, PhysicalNumber& b){
 		if (a.type == b.type){
 			return true;
 		}
@@ -36,7 +37,7 @@ namespace ariel{
 			}
 			return false;
 		}
-	}
+	}*/
 
 	PhysicalNumber PhysicalNumber::ThisIsTheBestCheckFunctionEverInTheWorld(PhysicalNumber bugi1, PhysicalNumber bugi2){
 			if(bugi1.type==bugi2.type){
@@ -162,7 +163,64 @@ namespace ariel{
 					 }
 				}
 			}
-			throw string("no can do babydoll");
+			string type1;
+			if (bugi1.type == KM){
+				type1="[km]";
+			}
+			if (bugi1.type == M){
+				type1="[m]";
+			}
+			if (bugi1.type == CM){
+				type1="[cm]";
+			}
+			if (bugi1.type == HOUR){
+				type1="[hour]";
+			}
+			if (bugi1.type == MIN){
+				type1="[min]";
+			}
+			if (bugi1.type == SEC){
+				type1="[sec]";
+			}
+			if (bugi1.type == TON){
+				type1="[ton]";
+			}
+			if (bugi1.type == KG){
+				type1="[kg]";
+			}
+			if (bugi1.type == G){
+				type1="[g]";
+			}
+			string type2;
+			if (bugi2.type == KM){
+				type2="[km]";
+			}
+			if (bugi2.type == M){
+				type2="[m]";
+			}
+			if (bugi2.type == CM){
+				type2="[cm]";
+			}
+			if (bugi2.type == HOUR){
+				type2="[hour]";
+			}
+			if (bugi2.type == MIN){
+				type2="[min]";
+			}
+			if (bugi2.type == SEC){
+				type2="[sec]";
+			}
+			if (bugi2.type == TON){
+				type2="[ton]";
+			}
+			if (bugi2.type == KG){
+				type2="[kg]";
+			}
+			if (bugi2.type == G){
+				type2="[g]";
+			}
+			throw invalid_argument("Units do not match - "+type2+" cannot be converted to "+type1+"\n");
+			return bugi2;
 		}
 
 	PhysicalNumber::PhysicalNumber(){
@@ -359,13 +417,20 @@ namespace ariel{
 
 
 
-/*
-int main(){
+
+/*int main(){
 	ariel::PhysicalNumber a;
+	ariel::PhysicalNumber b;
 	a.value = 5;
 	a.type = ariel::Unit::KG;
-	cout<<a--<<endl;
-	cout<<a;
+	b.value = 5;
+	b.type = ariel::Unit::CM;
+	try{
+		cout<<(a-b)<<endl;
+	}catch(string h){
+		cout<<h;
+	}
+	//cout<<a;
 	return 0;
 }*/
 
