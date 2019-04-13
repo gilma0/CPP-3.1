@@ -208,7 +208,7 @@ namespace ariel{
 		if (temp.value != this->value){
 			return true;
 		}
-		return false;
+			return false;
 	}
 	PhysicalNumber&  PhysicalNumber::operator=(PhysicalNumber a){
 		this->value=a.value;
@@ -248,10 +248,24 @@ namespace ariel{
 		this->value++;
 		return *this;
 	}
+	PhysicalNumber  PhysicalNumber::operator++(int){
+		PhysicalNumber temp;
+		temp.value = this->value;
+		temp.type = this->type;
+		this->value++;
+		return temp;
+	}
 	PhysicalNumber&  PhysicalNumber::operator--(){
 		this->value--;
 		return *this;
 	}
+	PhysicalNumber  PhysicalNumber::operator--(int){
+		PhysicalNumber temp;
+		temp.value = this->value;
+		temp.type = this->type;
+		this->value--;
+		return temp;
+		}
 	std::ostream& operator<<(std::ostream& os, const PhysicalNumber& a){
 		if (a.type == KM){
 			os<<a.value<<"[km]";
@@ -346,13 +360,13 @@ namespace ariel{
 
 
 
-/*int main(){
+int main(){
 	ariel::PhysicalNumber a;
-	//a.value = 5;
-	//a.type = ariel::Unit::KG;
-	cin>>a;
+	a.value = 5;
+	a.type = ariel::Unit::KG;
+	cout<<a--<<endl;
 	cout<<a;
 	return 0;
-}*/
+}
 
 

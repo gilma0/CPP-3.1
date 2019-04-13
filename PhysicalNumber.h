@@ -25,7 +25,9 @@ namespace ariel{
 		bool operator<(PhysicalNumber a);
 		bool operator>(PhysicalNumber a);
 		PhysicalNumber& operator++();
+		PhysicalNumber operator++(int);
 		PhysicalNumber& operator--();
+		PhysicalNumber operator--(int);
 	};
 	std::ostream& operator<<(std::ostream& os, const PhysicalNumber& a);
 	std::istream& operator>>(std::istream& is, PhysicalNumber& a);
