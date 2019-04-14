@@ -11,7 +11,6 @@ namespace ariel{
 		PhysicalNumber();
 		PhysicalNumber ThisIsTheBestCheckFunctionEverInTheWorld(PhysicalNumber bugi1, PhysicalNumber bugi2);
 		bool check(PhysicalNumber& a, PhysicalNumber& b);
-		double size();
 		PhysicalNumber operator+(PhysicalNumber a);
 		PhysicalNumber operator+();
 		PhysicalNumber operator-(PhysicalNumber a);
