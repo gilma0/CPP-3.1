@@ -15,9 +15,6 @@ namespace ariel{
 		this->value = a;
 		this->type = type;
 	}
-	double PhysicalNumber::size(){
-		return this->value;
-	}
 /*	bool check(PhysicalNumber& a, PhysicalNumber& b){
 		if (a.type == b.type){
 			return true;
