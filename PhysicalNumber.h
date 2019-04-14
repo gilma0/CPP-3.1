@@ -9,6 +9,7 @@ namespace ariel{
 		Unit type;
 		PhysicalNumber(double a, Unit);
 		PhysicalNumber();
+		double size();
 		PhysicalNumber ThisIsTheBestCheckFunctionEverInTheWorld(PhysicalNumber bugi1, PhysicalNumber bugi2);
 		bool check(PhysicalNumber& a, PhysicalNumber& b);
 		PhysicalNumber operator+(PhysicalNumber a);
