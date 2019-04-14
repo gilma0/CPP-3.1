@@ -405,7 +405,7 @@ namespace ariel{
 			a.type = CM;
 		}
 		else{
-			//throw string("illegal, nothing changed");
+			//throw string("illeagal, nothing changed");
 			return is;
 		}
 		type = temp.size()-1;
@@ -424,19 +424,10 @@ namespace ariel{
 
 /*int main(){
 	ariel::PhysicalNumber a;
-	cin>>a;
 	//ariel::PhysicalNumber b;
 	a.value = 1;
 	a.type = ariel::Unit::KM;
-	b.value = 0.5;
-	b.type = ariel::Unit::KM;
-	try{
-		cout<<(a+b)<<endl;
-	}catch(string h){
-		cout<<h;
-	}
-	//cout<<(b+=a);
-	cout<<a;
+	cout<<a.size();
 	return 0;
 }*/
 

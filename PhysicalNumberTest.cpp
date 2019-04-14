@@ -30,10 +30,19 @@ int main() {
     PhysicalNumber h(180, Unit::TON);
     PhysicalNumber g(80, Unit::KG);
     PhysicalNumber i(12, Unit::SEC);
+	PhysicalNumber a1;
+	PhysicalNumber a2;
+	PhysicalNumber a3;
+	PhysicalNumber a4;
+	PhysicalNumber a5;
+	PhysicalNumber a6;
+	PhysicalNumber a7;
+	PhysicalNumber a8;
+	PhysicalNumber a9;
 
     testcase
     .setname("Basic output")
-    .CHECK_OUTPUT(a, "2[km]")
+/*    .CHECK_OUTPUT(a, "2[km]")
     .CHECK_OUTPUT(b, "300[m]")
 
     .setname("Compatible dimensions")
@@ -83,7 +92,26 @@ int main() {
 	// My input tests
 		.CHECK_OK(istringstream("3[ton]") >> i)
 		.CHECK_OUTPUT(i, "3[ton]")
-		.CHECK_OUTPUT((i += PhysicalNumber(1, Unit::KG)), "3.001[ton]")
+		.CHECK_OUTPUT((i += PhysicalNumber(1, Unit::KG)), "3.001[ton]")*/
+
+    .CHECK_OK(istringstream("-3.1[ton]") >> a1)
+
+    .CHECK_OK(istringstream("-3.1[kg]") >> a2)
+
+	.CHECK_OK(istringstream("-3.1[g]") >> a3)
+
+	.CHECK_OK(istringstream("-3.1[km]") >> a4)
+
+	.CHECK_OK(istringstream("-3.1[cm]") >> a5)
+
+	.CHECK_OK(istringstream("-3.1[m]") >> a6)
+
+	.CHECK_OK(istringstream("-3.1[hour]") >> a7)
+
+	.CHECK_OK(istringstream("-3.1[min]") >> a8)
+
+	.CHECK_OK(istringstream("-3.1[sec]") >> a9)
+
 
 
 
@@ -92,12 +120,14 @@ int main() {
       .setname("...")
 
       .print(cout, /*show_grade=*/false);
+    cout<<a1<<endl<<a2<<endl<<a3<<endl<<a4<<endl<<a5<<endl<<a6<<endl<<a7<<endl<<a8<<endl<<a9<<endl;
       grade = testcase.grade();
     } else {
       testcase.print_signal(signal);
       grade = 0;
     }
     cout <<  "*** Grade: " << grade << " ***" << endl;
+
     return grade;
 }
 
