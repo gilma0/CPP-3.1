@@ -419,7 +419,7 @@ namespace ariel{
 
 
 
-int main(){
+/*int main(){
 	ariel::PhysicalNumber a;
 	ariel::PhysicalNumber b;
 	a.value = 1;
@@ -433,6 +433,6 @@ int main(){
 	}
 	cout<<a;
 	return 0;
-}
+}*/
 
 
