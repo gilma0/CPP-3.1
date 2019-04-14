@@ -238,7 +238,6 @@ namespace ariel{
 	}
 	PhysicalNumber PhysicalNumber::operator-(PhysicalNumber a){
 		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
-		cout<<temp<<endl;
 		temp.value = this->value-temp.value;
 		return temp;
 	}
