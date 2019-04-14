@@ -249,7 +249,7 @@ namespace ariel{
 		this->value = (*this+a).value;
 		return *this;
 	}
-	PhysicalNumber&  PhysicalNumber::operator+(PhysicalNumber a){
+	PhysicalNumber  PhysicalNumber::operator+(PhysicalNumber a){
 		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
 		temp.value = this->value+temp.value;
 		return temp;
@@ -420,16 +420,18 @@ namespace ariel{
 
 /*int main(){
 	ariel::PhysicalNumber a;
-	ariel::PhysicalNumber b;
+	cin>>a;
+	//ariel::PhysicalNumber b;
 	a.value = 1;
-	a.type = ariel::Unit::HOUR;
-	b.value = 2500;
-	b.type = ariel::Unit::SEC;
+	a.type = ariel::Unit::KM;
+	b.value = 0.5;
+	b.type = ariel::Unit::KM;
 	try{
-		cout<<(a-b)<<endl;
+		cout<<(a+b)<<endl;
 	}catch(string h){
 		cout<<h;
 	}
+	//cout<<(b+=a);
 	cout<<a;
 	return 0;
 }*/
