@@ -94,7 +94,7 @@ namespace ariel{
 					}
 
 					else{
-						bugi2.type=SEC;
+						bugi2.type=HOUR;
 						bugi2.value=bugi2.value/60/60;
 						return bugi2;
 					}
@@ -106,7 +106,7 @@ namespace ariel{
 						return bugi2;
 					}
 					else{
-						bugi2.type=SEC;
+						bugi2.type=MIN;
 						bugi2.value=bugi2.value/60;
 						return bugi2;
 					}
@@ -119,7 +119,7 @@ namespace ariel{
 						return bugi2;
 					 }
 					 else{
-						bugi2.type=MIN;
+						bugi2.type=SEC;
 						bugi2.value=bugi2.value*60;
 						return bugi2;
 					 }
@@ -238,6 +238,7 @@ namespace ariel{
 	}
 	PhysicalNumber PhysicalNumber::operator-(PhysicalNumber a){
 		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
+		cout<<temp<<endl;
 		temp.value = this->value-temp.value;
 		return temp;
 	}
@@ -418,20 +419,20 @@ namespace ariel{
 
 
 
-/*int main(){
+int main(){
 	ariel::PhysicalNumber a;
 	ariel::PhysicalNumber b;
-	a.value = 5;
-	a.type = ariel::Unit::KG;
-	b.value = 5;
-	b.type = ariel::Unit::CM;
+	a.value = 1;
+	a.type = ariel::Unit::HOUR;
+	b.value = 2500;
+	b.type = ariel::Unit::SEC;
 	try{
 		cout<<(a-b)<<endl;
 	}catch(string h){
 		cout<<h;
 	}
-	//cout<<a;
+	cout<<a;
 	return 0;
-}*/
+}
 
 
