@@ -409,7 +409,7 @@ namespace ariel{
 			temp.pop_back();
 		}
 		temp.pop_back();
-		a.value = stoi(temp);
+		a.value = stod(temp);
 		return is;
 	}
 }
