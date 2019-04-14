@@ -222,7 +222,7 @@ namespace ariel{
 			if (bugi2.type == G){
 				type2="[g]";
 			}
-			throw invalid_argument("Units do not match - "+type2+" cannot be converted to "+type1+"\n");
+			//throw invalid_argument("Units do not match - "+type2+" cannot be converted to "+type1+"\n");
 			return bugi2;
 		}
 
