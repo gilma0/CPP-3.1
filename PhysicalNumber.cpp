@@ -405,7 +405,7 @@ namespace ariel{
 			a.type = CM;
 		}
 		else{
-			//throw string("illeagal, nothing changed");
+			//throw string("illegal, nothing changed");
 			return is;
 		}
 		type = temp.size()-1;
