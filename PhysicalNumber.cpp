@@ -402,7 +402,8 @@ namespace ariel{
 			a.type = CM;
 		}
 		else{
-			throw string("madafaka");
+			//throw string("madafaka");
+			return is;
 		}
 		type = temp.size()-1;
 		while(temp.at(type--) != '['){
