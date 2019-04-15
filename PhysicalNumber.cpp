@@ -374,7 +374,7 @@ namespace ariel{
 		while(temp.at(type) != '['){
 			t += temp.at(type--);
 		}
-		if (!t.find("["){
+		if (!t.find("[")){
 			return is;
 		}
 		string b = "";
