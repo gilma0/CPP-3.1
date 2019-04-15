@@ -369,7 +369,7 @@ namespace ariel{
 	std::istream& operator>>(std::istream& is, PhysicalNumber& a){
 		string temp;
 		is>>temp;
-		if (!t.find("[")){
+		if (!temp.find("[")){
 			a.value = stod(temp);
 			return is;
 		}
