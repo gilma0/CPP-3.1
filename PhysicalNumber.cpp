@@ -284,10 +284,10 @@ namespace ariel{
 		return false;
 	}
 	bool PhysicalNumber::operator>=(PhysicalNumber a){
-		PhysicalNumber temp=ThisIsTheBestCheckFunctionEverInTheWorld(*this,a);
-		if(this->value>=temp.value){
-			return true;
-		}
+		//PhysicalNumber temp=ThisIsTheBestCheckFunctionEverInTheWorld(*this,a);
+		//if(this->value>=temp.value){
+		//	return true;
+		//}
 		return false;
 	}
 
