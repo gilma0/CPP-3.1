@@ -375,6 +375,7 @@ namespace ariel{
 			t += temp.at(type--);
 		}
 		if (!t.find("[")){
+			a.value = stod(t);
 			return is;
 		}
 		string b = "";
