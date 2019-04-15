@@ -369,8 +369,8 @@ namespace ariel{
 	std::istream& operator>>(std::istream& is, PhysicalNumber& a){
 		string temp;
 		is>>temp;
-		if (temp.find("[")){
-			a.value = stod(temp);
+		if (!temp.find("[")){
+			//a.value = stod(temp);
 			return is;
 		}
 		int type = temp.size()-2;
