@@ -369,14 +369,14 @@ namespace ariel{
 	std::istream& operator>>(std::istream& is, PhysicalNumber& a){
 		string temp;
 		is>>temp;
+		if (!t.find("[")){
+			a.value = stod(temp);
+			return is;
+		}
 		int type = temp.size()-2;
 		string t = "";
 		while(temp.at(type) != '['){
 			t += temp.at(type--);
-		}
-		if (!t.find("[")){
-			a.value = stod(t);
-			return is;
 		}
 		string b = "";
 		for(int i = t.size()-1; i>=0; i--){
