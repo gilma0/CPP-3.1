@@ -371,7 +371,8 @@ namespace ariel{
 		is>>temp;
 		int type = temp.size()-2;
 		string t = "";
-		while(temp.at(type) != '[' && temp.at(type) != temp.at(0)){
+		//temp.at(type) != temp.at(0)
+		while(temp.at(type) != '[' && type != 0){
 			t += temp.at(type--);
 		}
 		string b = "";
