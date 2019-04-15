@@ -327,7 +327,7 @@ namespace ariel{
 		this->value--;
 		return temp;
 		}
-	std::ostream& operator<<(std::ostream& os, const PhysicalNumber a){
+	std::ostream& operator<<(std::ostream& os, PhysicalNumber a){
 		if (a.type == KM){
 			os<<a->value<<"[km]";
 			return os;
