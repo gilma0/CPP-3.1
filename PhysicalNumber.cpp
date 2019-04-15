@@ -374,6 +374,9 @@ namespace ariel{
 		while(temp.at(type) != '['){
 			t += temp.at(type--);
 		}
+		if (!t.find("["){
+			return is;
+		}
 		string b = "";
 		for(int i = t.size()-1; i>=0; i--){
 			b += toupper(t.at(i));
