@@ -327,41 +327,41 @@ namespace ariel{
 		this->value--;
 		return temp;
 		}
-	std::ostream& operator<<(std::ostream& os, const PhysicalNumber& a){
+	std::ostream& operator<<(std::ostream& os, const PhysicalNumber a){
 		if (a.type == KM){
-			os<<a.value<<"[km]";
+			os<<a->value<<"[km]";
 			return os;
 		}
 		if (a.type == M){
-			os<<a.value<<"[m]";
+			os<<a->value<<"[m]";
 			return os;
 		}
 		if (a.type == CM){
-			os<<a.value<<"[cm]";
+			os<<a->value<<"[cm]";
 			return os;
 		}
 		if (a.type == HOUR){
-			os<<a.value<<"[hour]";
+			os<<a->value<<"[hour]";
 			return os;
 		}
 		if (a.type == MIN){
-			os<<a.value<<"[min]";
+			os<<a->value<<"[min]";
 			return os;
 		}
 		if (a.type == SEC){
-			os<<a.value<<"[sec]";
+			os<<a->value<<"[sec]";
 			return os;
 		}
 		if (a.type == TON){
-			os<<a.value<<"[ton]";
+			os<<a->value<<"[ton]";
 			return os;
 		}
 		if (a.type == KG){
-			os<<a.value<<"[kg]";
+			os<<a->value<<"[kg]";
 			return os;
 		}
 		if (a.type == G){
-			os<<a.value<<"[g]";
+			os<<a->value<<"[g]";
 			return os;
 		}
 		return os;
