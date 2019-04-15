@@ -370,8 +370,8 @@ namespace ariel{
 		string temp;
 		is>>temp;
 		if (!temp.find("[")){
-			//a.value = stod(temp);
-			return is;
+			throw string("no can do");
+			//return is;
 		}
 		int type = temp.size()-2;
 		string t = "";
