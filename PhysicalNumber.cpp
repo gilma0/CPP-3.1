@@ -364,6 +364,7 @@ namespace ariel{
 			os<<a.value<<"[g]";
 			return os;
 		}
+		return os;
 	}
 	std::istream& operator>>(std::istream& is, PhysicalNumber& a){
 		string temp;
