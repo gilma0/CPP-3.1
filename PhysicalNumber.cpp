@@ -11,56 +11,33 @@ namespace ariel{
 	double value;
 	Unit type;
 
-	PhysicalNumber::PhysicalNumber(double a, Unit type){
+	PhysicalNumber::PhysicalNumber(double a, Unit type){ //constructor
 		this->value = a;
 		this->type = type;
 	}
-	double PhysicalNumber::size(){
+	double PhysicalNumber::size(){ //getting value of object
 		return this->value;
 	}
-/*	bool check(PhysicalNumber& a, PhysicalNumber& b){
-		if (a.type == b.type){
-			return true;
-		}
-		if (a.type == Unit::KM || a.type == Unit::M || a.type == Unit::CM){
-			if (b.type == Unit::KM || b.type == Unit::M || b.type == Unit::CM){
-				return true;
-			}
-			return false;
-		}
-		if (a.type == Unit::TON || a.type == Unit::KG || a.type == Unit::G){
-			if (b.type == Unit::TON || b.type == Unit::KG || b.type == Unit::G){
-				return true;
-			}
-			return false;
-		}
-		if (a.type == Unit::HOUR || a.type == Unit::MIN || a.type == Unit::SEC){
-			if (b.type == Unit::HOUR || b.type == Unit::MIN || b.type == Unit::SEC){
-				return true;
-			}
-			return false;
-		}
-	}*/
 
 	PhysicalNumber PhysicalNumber::ThisIsTheBestCheckFunctionEverInTheWorld(PhysicalNumber bugi1, PhysicalNumber bugi2){
-			if(bugi1.type==bugi2.type){
+			if(bugi1.type==bugi2.type){ //same type case
 				return bugi2;
-			}
+			} //checking type difference
 			else if((bugi1.type==KM || bugi1.type==M || bugi1.type==CM) && (bugi2.type==KM || bugi2.type==M || bugi2.type==CM)){
 				if(bugi1.type==KM){
 					if(bugi2.type==M){
 						bugi2.type=KM;
-						bugi2.value=bugi2.value/1000;
+						bugi2.value=bugi2.value/1000; //changing type and value if they can be calculated together
 						return bugi2;
 					}
 
-					else{
+					else{ //other scenario
 						bugi2.type=KM;
-						bugi2.value=bugi2.value/100000;
+						bugi2.value=bugi2.value/100000;	//changing type and value if they can be calculated together
 						return bugi2;
 					}
 				}
-
+				//the same steps are repeated below for each case
 				else if(bugi1.type==M){
 					if(bugi2.type==KM){
 						bugi2.type=M;
@@ -165,8 +142,8 @@ namespace ariel{
 						 return bugi2;
 					 }
 				}
-			}
-			string type1;
+			} //if they cant be calculated together
+			string type1; //building an exception so you can understand the problem
 			if (bugi1.type == KM){
 				type1="[km]";
 			}
@@ -226,64 +203,64 @@ namespace ariel{
 			return bugi2;
 		}
 
-	PhysicalNumber::PhysicalNumber(){
+	PhysicalNumber::PhysicalNumber(){ //default constructor
 		this->value = 0;
 		this->value = 500;
 	}
-	PhysicalNumber PhysicalNumber::operator+(){
+	PhysicalNumber PhysicalNumber::operator+(){ //getting the object as is
 		return *this;
 	}
-	PhysicalNumber PhysicalNumber::operator-(){
+	PhysicalNumber PhysicalNumber::operator-(){ //getting the object as a negative of it
 		PhysicalNumber temp;
 		temp.value = -(this->value);
 		temp.type = this->type;
 		return temp;
 	}
-	PhysicalNumber PhysicalNumber::operator-(PhysicalNumber a){
-		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
-		temp.value = this->value-temp.value;
+	PhysicalNumber PhysicalNumber::operator-(PhysicalNumber a){ //calculate minus two objects
+		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a); //checking if they can be calculated together
+		temp.value = this->value-temp.value; //calculation
 		return temp;
 	}
-	PhysicalNumber&  PhysicalNumber::operator-=(PhysicalNumber a){
+	PhysicalNumber&  PhysicalNumber::operator-=(PhysicalNumber a){ //changing the current object value using the "-" function
 		this->value = (*this-a).value;
 		return *this;
 	}
-	PhysicalNumber&  PhysicalNumber::operator+=(PhysicalNumber a){
+	PhysicalNumber&  PhysicalNumber::operator+=(PhysicalNumber a){ //changing the current object value using the "+" function
 		this->value = (*this+a).value;
 		return *this;
 	}
-	PhysicalNumber  PhysicalNumber::operator+(PhysicalNumber a){
-		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
-		temp.value = this->value+temp.value;
+	PhysicalNumber  PhysicalNumber::operator+(PhysicalNumber a){ //calculate plus two objects
+		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a); //checking if they can be calculated together
+		temp.value = this->value+temp.value; //calculation
 		return temp;
 	}
-	bool PhysicalNumber::operator==(PhysicalNumber a){
-		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
-		if (temp.value == this->value){
+	bool PhysicalNumber::operator==(PhysicalNumber a){ //checking if two objects are equal in value
+		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a); //checking if they are the same type
+		if (temp.value == this->value){ //check if equal
 			return true;
 		}
 		return false;
 	}
-	bool PhysicalNumber::operator!=(PhysicalNumber a){
-		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
-		if (temp.value != this->value){
+	bool PhysicalNumber::operator!=(PhysicalNumber a){ //checking if two objects are unequal in value
+		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a); //checking if they are the same type
+		if (temp.value != this->value){ //check if unequal
 			return true;
 		}
 			return false;
 	}
-	PhysicalNumber&  PhysicalNumber::operator=(PhysicalNumber a){
+	PhysicalNumber&  PhysicalNumber::operator=(PhysicalNumber a){ //assign a object to a different one
 		this->value=a.value;
 		this->type=a.type;
 		return *this;
 	}
-	bool PhysicalNumber::operator<=(PhysicalNumber a){
+	bool PhysicalNumber::operator<=(PhysicalNumber a){ //checking if less or equal
 		PhysicalNumber temp=ThisIsTheBestCheckFunctionEverInTheWorld(*this,a);
 		if(this->value<=temp.value){
 			return true;
 		}
 		return false;
 	}
-	bool PhysicalNumber::operator>=(PhysicalNumber a){
+	bool PhysicalNumber::operator>=(PhysicalNumber a){ //checking if more or equal
 		PhysicalNumber temp=ThisIsTheBestCheckFunctionEverInTheWorld(*this,a);
 		if(this->value>=temp.value){
 			return true;
@@ -291,44 +268,44 @@ namespace ariel{
 		return false;
 	}
 
-	bool PhysicalNumber::operator<(PhysicalNumber a){
+	bool PhysicalNumber::operator<(PhysicalNumber a){ //check if less
 		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
 		if(this->value < temp.value){
 			return true;
 		}
 		return false;
 	}
-	bool PhysicalNumber::operator>(PhysicalNumber a){
+	bool PhysicalNumber::operator>(PhysicalNumber a){ //check if more
 		PhysicalNumber temp = ThisIsTheBestCheckFunctionEverInTheWorld(*this, a);
 		if(this->value > temp.value){
 			return true;
 		}
 		return false;
 	}
-	PhysicalNumber&  PhysicalNumber::operator++(){
+	PhysicalNumber&  PhysicalNumber::operator++(){ //adding one to object before
 		this->value++;
 		return *this;
 	}
-	PhysicalNumber  PhysicalNumber::operator++(int){
-		PhysicalNumber temp;
+	PhysicalNumber  PhysicalNumber::operator++(int){ //adding one to object after
+		PhysicalNumber temp; //copy of the object
 		temp.value = this->value;
 		temp.type = this->type;
-		this->value++;
-		return temp;
+		this->value++; //changing original object value
+		return temp; //returning copy
 	}
 	PhysicalNumber&  PhysicalNumber::operator--(){
 		this->value--;
 		return *this;
 	}
-	PhysicalNumber  PhysicalNumber::operator--(int){
-		PhysicalNumber temp;
+	PhysicalNumber  PhysicalNumber::operator--(int){ //subtract object by one
+		PhysicalNumber temp; //copy of original
 		temp.value = this->value;
 		temp.type = this->type;
-		this->value--;
-		return temp;
+		this->value--; //changing original value
+		return temp; //return copy
 		}
 	std::ostream& operator<<(std::ostream& os, const PhysicalNumber& a){
-		if (a.type == KM){
+		if (a.type == KM){       //checking type of object and building the ostream accordingly
 			os<<a.value<<"[km]";
 			return os;
 		}
@@ -368,18 +345,17 @@ namespace ariel{
 	}
 	std::istream& operator>>(std::istream& is, PhysicalNumber& a){
 		string temp;
-		is>>temp;
+		is>>temp; //string for cin
 		int type = temp.size()-2;
-		string t = "";
-		//temp.at(type) != temp.at(0)
-		while(temp.at(type) != '[' && type != 0){
+		string t = ""; //string to type
+		while(temp.at(type) != '[' && type != 0){ //building the string until getting the type
 			t += temp.at(type--);
 		}
 		string b = "";
 		for(int i = t.size()-1; i>=0; i--){
 			b += toupper(t.at(i));
 		}
-		if (b.compare("TON") == 0){
+		if (b.compare("TON") == 0){ //getting right type
 			a.type = TON;
 		}
 		else if (b.compare("KG") == 0){
@@ -407,30 +383,16 @@ namespace ariel{
 			a.type = CM;
 		}
 		else{
-			//throw string("illegal, nothing changed");
-			return is;
+			return is; //if theres a problem nothing changes
 		}
-		type = temp.size()-1;
+		type = temp.size()-1; //getting the value
 		while(temp.at(type--) != '['){
 			temp.pop_back();
 		}
 		temp.pop_back();
-		a.value = stod(temp);
+		a.value = stod(temp); //assign value
 		return is;
 	}
 }
-
-
-
-
-
-/*int main(){
-	ariel::PhysicalNumber a;
-	//ariel::PhysicalNumber b;
-	a.value = 1;
-	a.type = ariel::Unit::KM;
-	cout<<a.size();
-	return 0;
-}*/
 
 
